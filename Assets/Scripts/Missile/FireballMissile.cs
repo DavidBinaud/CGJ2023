@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class fireballMissile : MonoBehaviour
 {
-    public float lifetime = 100f;
+    public float lifetime = 2.5f;
 
     private Animator animator;
 
@@ -38,7 +38,7 @@ public class fireballMissile : MonoBehaviour
         }
         else
         {
-            lifetime--;
+            lifetime -= Time.deltaTime;
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Exit"))

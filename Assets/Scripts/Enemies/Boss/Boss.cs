@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Boss : MonoBehaviour
+public abstract class Boss : MonoBehaviour, IEnemy
 {
     public bool randomOrder;
     public float timeBetweenAttacks;
@@ -11,7 +11,23 @@ public abstract class Boss : MonoBehaviour
     protected int curentAttack;
     protected float curentTimeBetweenAttacks;
 
-    private bool inCooldown = false;
+    protected bool inCooldown = false;
+
+    public void Attack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Move()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public virtual void Die()
+    {
+        bossAtacks[curentAttack].enabled = false;
+        this.enabled = false;
+    }
 
     protected void Start()
     {
