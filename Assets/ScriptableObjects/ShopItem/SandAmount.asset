@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba5b2963110d7b4a8177041bb68f9d4, type: 3}
+  m_Name: SandAmount
+  m_EditorClassIdentifier: 
+  id: 0
+  unlockText: "Sable du Temps. Tr\xE8s utile."
+  upgradeText: "Du sable suppl\xE9mentaire !"
+  prefab: {fileID: 954979552520839556, guid: 1bff563c052a7ab4391b5133e0c8611e, type: 3}
+  shopDisplay: {fileID: 8471671666887509117, guid: 857e98f9be0052b49a682cdcb4615057,
+    type: 3}
+  upgradeValue:
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  upgradeCost: 3200000064000000c80000009001000020030000
