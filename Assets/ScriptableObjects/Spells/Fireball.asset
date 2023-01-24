@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   card: {fileID: 21300000, guid: cd8de603251128c428b4da7a3c527929, type: 3}
+  spellCard: {fileID: 9171110658464280999, guid: e824257f0ddefac43ad94eb143aeba54,
+    type: 3}

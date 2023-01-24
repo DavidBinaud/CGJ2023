@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 relative = (transform.position + input.ToIso()) - transform.position;
             Quaternion rot = Quaternion.LookRotation(relative, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, turnSpeed * Time.deltaTime);
+            transform.rotation = rot;//Quaternion.RotateTowards(transform.rotation, rot, turnSpeed * Time.deltaTime);
         }
     }
 
@@ -222,6 +222,7 @@ public class PlayerController : MonoBehaviour
                     RemoveSand();
                     
                     Debug.Log("Cast " + hand[selectedSpell].name);
+                    hand[selectedSpell].spellCard.GetComponent<ISpell>().Cast();
                     deck.Add(hand[selectedSpell]);
                     hand[selectedSpell] = null;
                     

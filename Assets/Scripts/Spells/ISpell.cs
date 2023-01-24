@@ -5,6 +5,6 @@ using UnityEngine;
 
 public interface ISpell
 {
-    public static void Cast();
+    public void Cast();
 
 }
