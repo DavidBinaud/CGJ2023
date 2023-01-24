@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class EnemyAttack : BossAttack
 {
-    protected new void OnEnable()
+    protected void OnEnable()
     {
         Debug.Log("Enemy attack !");
         //TODO instantiate enemies
     }
 
-    private new void Update()
+    private void Update()
     {
 
     }

@@ -9,6 +9,8 @@ public class ProjectileAttack : DurationBossAtack
     public float projectileSpeed = 5.0f;
     public float waveTime = 0.5f;
 
+    public Transform projectileSpawnPos;
+
     private float currentWaveTime;
     private int currentWave;
 
@@ -40,7 +42,7 @@ public class ProjectileAttack : DurationBossAtack
             {
                 angle = increment * i + phase;
 
-                instancedProjectile = Instantiate<Projectile>(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+                instancedProjectile = Instantiate<Projectile>(projectilePrefab, projectileSpawnPos.position, projectilePrefab.transform.rotation);
                 Vector3 positionInCircle = new Vector3(Mathf.Cos(angle), 0.0f, Mathf.Sin(angle));
 
                 instancedProjectile.speed = positionInCircle * projectileSpeed;

@@ -7,11 +7,10 @@ public class FireballSpell : MonoBehaviour, ISpell
     public void Cast()
     {
         GameObject createdMissile = Instantiate(prefab);
-        createdMissile.transform.position = PlayerController.Instance.transform.position;
-        //prefab.transform and push it
-        //createdMissile.transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        createdMissile.transform.position = PlayerController.Instance.transform.position;// + Vector3.forward * 100;
+        Vector3 forward = PlayerController.Instance.transform.forward*1000;
+        createdMissile.GetComponent<Rigidbody>().AddForce(createdMissile.transform.position + forward);
 
-        //createdMissile.transform.forward = 
         Debug.Log("Fireball cast");
     }
 }

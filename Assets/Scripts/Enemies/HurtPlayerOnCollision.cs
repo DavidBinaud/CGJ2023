@@ -5,16 +5,23 @@ using UnityEngine;
 public class HurtPlayerOnCollision : MonoBehaviour
 {
     public bool deleteObject = false;
+    public bool onlyOnce = false;
+
+    public bool active = true;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (active && collision.collider.CompareTag("Player"))
         {
             PlayerController.Instance.GetHit();
 
             if (deleteObject)
             {
                 Destroy(gameObject);
+            }
+            if (onlyOnce)
+            {
+                active = false;
             }
         }
     }

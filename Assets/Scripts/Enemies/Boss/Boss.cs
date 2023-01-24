@@ -11,7 +11,7 @@ public abstract class Boss : MonoBehaviour
     protected int curentAttack;
     protected float curentTimeBetweenAttacks;
 
-    private bool inCooldown = false;
+    protected bool inCooldown = false;
 
     protected void Start()
     {
