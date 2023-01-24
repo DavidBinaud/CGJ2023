@@ -296,5 +296,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+
+    public void GetHit(int _damage)
+    {
+        if (sandAmount > _damage)
+        {
+            sandAmount-= _damage;
+            ChangeSandAmount();
+        }
+        else
+        {
+            Debug.Log("Die");
+        }
+    }
+
+
 }

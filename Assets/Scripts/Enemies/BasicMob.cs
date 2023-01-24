@@ -9,7 +9,6 @@ public class BasicMob : MonoBehaviour{
     
     [SerializeField] private Animator animator;
     [SerializeField] private NavMeshAgent nm_agent;
-    [SerializeField] private Transform transform;
 
     [SerializeField] private IWeapons weapon;
 
@@ -27,6 +26,9 @@ public class BasicMob : MonoBehaviour{
     protected void Attack()
     {
         isMooving = false;
+        //Face the player
+        transform.rotation = Quaternion.LookRotation(Vector3.Normalize(PlayerController.Instance.transform.position - transform.position));
+        //Attack
         animator.Play("attack");
     }
 

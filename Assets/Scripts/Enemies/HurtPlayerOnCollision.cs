@@ -9,11 +9,14 @@ public class HurtPlayerOnCollision : MonoBehaviour
 
     public bool active = true;
 
+    public int damage = 1;
+
+
     private void OnCollisionEnter(Collision collision)
     {
         if (active && collision.collider.CompareTag("Player"))
         {
-            PlayerController.Instance.GetHit();
+            PlayerController.Instance.GetHit(damage);
 
             if (deleteObject)
             {
