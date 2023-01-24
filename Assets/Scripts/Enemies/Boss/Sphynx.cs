@@ -6,10 +6,14 @@ using UnityEngine;
 public class Sphynx : Boss
 {
     public float animationVulnerableShakeIntensity = 0.2f;
+    public float animationDyingTime = 5.0f;
     public SphynxHealth healthSystem;
 
     private bool previousWasInCooldown;
     private Vector3 basePos;
+
+    private bool dying = false;
+    private float curentAnimationDyingTime;
 
     new void Start()
     {
@@ -19,14 +23,17 @@ public class Sphynx : Boss
 
     new void Update()
     {
-        base.Update();
+        if (!dying)
+        {
+            base.Update();
+        }
 
 
         healthSystem.invincible = !inCooldown;
 
         // Animation : 
         // If vulnerable, shake
-        if (inCooldown)
+        if (inCooldown || dying)
         {
             if (!previousWasInCooldown)
             {
@@ -34,6 +41,12 @@ public class Sphynx : Boss
             }
 
             transform.position = basePos + animationVulnerableShakeIntensity * new Vector3(Random.value, Random.value, Random.value);
+
+            if (dying)
+            {
+                curentAnimationDyingTime -= Time.deltaTime;
+                basePos -= Vector3.up * (5.0f / animationDyingTime) * Time.deltaTime;
+            }
         }
         else
         {
@@ -43,5 +56,13 @@ public class Sphynx : Boss
             }
         }
         previousWasInCooldown = inCooldown;
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        this.enabled = true;
+        dying = true;
+        curentAnimationDyingTime = animationDyingTime;
     }
 }

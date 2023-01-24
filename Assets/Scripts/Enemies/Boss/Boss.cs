@@ -23,6 +23,12 @@ public abstract class Boss : MonoBehaviour, IEnemy
         throw new System.NotImplementedException();
     }
 
+    public virtual void Die()
+    {
+        bossAtacks[curentAttack].enabled = false;
+        this.enabled = false;
+    }
+
     protected void Start()
     {
         curentTimeBetweenAttacks = timeBetweenAttacks;
