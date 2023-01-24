@@ -10,4 +10,7 @@ public class Enemy : ScriptableObject
     public float moveSpeed;
     public float attackDelay;
     public float attackSpeed;
+
+    public float rangeAttack;
+    public float rangeAgro;
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangeWeapons : MonoBehaviour, IWeapons
+public class RangeWeapons : AWeapons
 {
     public Projectile[] projectiles;
     public bool randomOrder;
@@ -11,7 +11,7 @@ public class RangeWeapons : MonoBehaviour, IWeapons
 
     public float projectileSpeed = 1.0f;
 
-    public void SetDamages(int damages)
+    public override void SetDamages(int damages)
     {
         foreach (Projectile p in projectiles)
         {

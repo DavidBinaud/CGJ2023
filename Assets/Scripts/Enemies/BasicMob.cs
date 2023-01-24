@@ -4,18 +4,23 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
 
-public class BasicMob : MonoBehaviour{
-    [SerializeField] private ScriptableObjectMob datas;
+public class BasicMob : AEnemy{
+    [SerializeField] private Enemy datas;
     
-    [SerializeField] private Animator animator;
-    [SerializeField] private NavMeshAgent nm_agent;
+    private Animator animator;
+    private NavMeshAgent nm_agent;
 
-    [SerializeField] private IWeapons weapon;
+    [SerializeField] private AWeapons weapon;
 
     private bool isMooving = false;
+
+    public override void SetStartPosition(Vector3 _position)
+    {
+        transform.position = _position;
+    }
     protected bool CanAttack()
     {
-        return (!animator.GetCurrentAnimatorStateInfo(0).IsName("attack")) && (Vector3.Magnitude(PlayerController.Instance.transform.position - transform.position) <= datas.rangeAttack);
+        return /*!(animator.GetCurrentAnimatorStateInfo(0).IsName("attack")) && */(Vector3.Magnitude(PlayerController.Instance.transform.position - transform.position) <= datas.rangeAttack);
     }
 
     protected bool CanMoove()
@@ -23,7 +28,7 @@ public class BasicMob : MonoBehaviour{
         return Vector3.Magnitude(PlayerController.Instance.transform.position - transform.position) <= datas.rangeAgro ;
     }
 
-    protected void Attack()
+    public override void Attack()
     {
         isMooving = false;
         //Face the player
@@ -32,7 +37,7 @@ public class BasicMob : MonoBehaviour{
         animator.Play("attack");
     }
 
-    protected void Moove()
+    public override void Moove()
     {
         nm_agent.SetDestination(PlayerController.Instance.transform.position);
         if( ! isMooving)
@@ -44,7 +49,9 @@ public class BasicMob : MonoBehaviour{
 
     void Start()
     {
-        weapon.SetDamages(datas.damage);
+        weapon.SetDamages(datas.Damage);
+        animator = GetComponent<Animator>();
+        nm_agent = GetComponent<NavMeshAgent>();
     }
     void Update()
     {
