@@ -6,6 +6,8 @@ using UnityEngine;
 public class Sphynx : Boss
 {
     public float animationVulnerableShakeIntensity = 0.2f;
+    public SphynxHealth healthSystem;
+
     private bool previousWasInCooldown;
     private Vector3 basePos;
 
@@ -19,6 +21,8 @@ public class Sphynx : Boss
     {
         base.Update();
 
+
+        healthSystem.invincible = !inCooldown;
 
         // Animation : 
         // If vulnerable, shake
