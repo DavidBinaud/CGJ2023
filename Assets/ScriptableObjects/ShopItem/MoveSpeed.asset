@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba5b2963110d7b4a8177041bb68f9d4, type: 3}
+  m_Name: MoveSpeed
+  m_EditorClassIdentifier: 
+  id: 1
+  unlockText: Des bottes. Un grand classique.
+  upgradeText: Cours encore plus vite !
+  prefab: {fileID: 954979552520839556, guid: 6e4801169a9608f4b88a37330ab6a4d2, type: 3}
+  shopDisplay: {fileID: 8471671666887509117, guid: 857e98f9be0052b49a682cdcb4615057,
+    type: 3}
+  upgradeValue:
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  upgradeCost: 3c00000046000000500000005a00000064000000
