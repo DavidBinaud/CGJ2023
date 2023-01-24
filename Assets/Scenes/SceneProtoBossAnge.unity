@@ -1107,54 +1107,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635751042}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &763806541
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 763806542}
-  - component: {fileID: 763806543}
-  m_Layer: 0
-  m_Name: SphynxEffects
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &763806542
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763806541}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3868081397817166927}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &763806543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763806541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70aa0c8a68a7b446975c69d89601ea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HurtParticles: {fileID: 1936471118885833116, guid: b17ea367d81ee90498cf9eb0777fcf9f,
-    type: 3}
-  DieParticles: {fileID: 1936471118885833116, guid: 4347dac4e70c66e479ee86b20a5cd27a,
-    type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3433,16 +3385,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3868081398843322576, guid: c9896d38d838fe8478b441f86f0ce321,
-        type: 3}
-      propertyPath: healthSystem
-      value: 
-      objectReference: {fileID: 3868081397817166926}
-    - target: {fileID: 3868081398843322582, guid: c9896d38d838fe8478b441f86f0ce321,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 3868081399517853098, guid: c9896d38d838fe8478b441f86f0ce321,
         type: 3}
       propertyPath: m_Name
@@ -3505,94 +3447,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3868081398843322583, guid: c9896d38d838fe8478b441f86f0ce321,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 763806542}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3868081398843322582, guid: c9896d38d838fe8478b441f86f0ce321,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 3868081397817166926}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9896d38d838fe8478b441f86f0ce321, type: 3}
---- !u!1 &3868081397817166925 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3868081398843322582, guid: c9896d38d838fe8478b441f86f0ce321,
-    type: 3}
-  m_PrefabInstance: {fileID: 3868081397817166924}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3868081397817166926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3868081397817166925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22c88eef86ad672428a8173b32d08f82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
-  onDamageEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 763806543}
-        m_TargetAssemblyTypeName: SphynxEffectManager, Assembly-CSharp
-        m_MethodName: OnHit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onDeathEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3868081397817166933}
-        m_TargetAssemblyTypeName: Boss, Assembly-CSharp
-        m_MethodName: Die
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 763806543}
-        m_TargetAssemblyTypeName: SphynxEffectManager, Assembly-CSharp
-        m_MethodName: OnDie
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  invincible: 1
---- !u!4 &3868081397817166927 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3868081398843322583, guid: c9896d38d838fe8478b441f86f0ce321,
-    type: 3}
-  m_PrefabInstance: {fileID: 3868081397817166924}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3868081397817166933 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3868081398843322576, guid: c9896d38d838fe8478b441f86f0ce321,
-    type: 3}
-  m_PrefabInstance: {fileID: 3868081397817166924}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3868081397817166925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3517ba869eb721f4ebda770031bf0515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
