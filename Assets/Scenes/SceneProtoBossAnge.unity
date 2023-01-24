@@ -380,6 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 797487043}
   speed: 2
+  cameraDistance: 5
 --- !u!1 &200067578
 GameObject:
   m_ObjectHideFlags: 0
@@ -2506,7 +2507,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7838ff4da7188db45834d8b1788ed244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 4
+  projectilePrefab: {fileID: 871123236668059370, guid: 14b2146fd08c75843b90a9f065e79369,
+    type: 3}
+  nbProjPerWave: 10
+  projectileSpeed: 10
+  waveTime: 0.5
 --- !u!114 &1131052190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2519,7 +2525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57af580708db004d8d06efc43f9976f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 4
 --- !u!1 &1187957747
 GameObject:
   m_ObjectHideFlags: 0

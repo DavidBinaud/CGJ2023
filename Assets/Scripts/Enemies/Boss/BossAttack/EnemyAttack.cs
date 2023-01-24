@@ -1,21 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack : DurationBossAtack
+public class EnemyAttack : BossAttack
 {
     protected new void OnEnable()
     {
-        base.OnEnable();
+        Debug.Log("Enemy attack !");
+        //TODO instantiate enemies
     }
 
     private new void Update()
     {
-        base.Update();
+
     }
 
     private void OnDisable()
     {
 
+    }
+
+    public override bool IsFinished()
+    {
+        return true;
+        //TODO nbEnemiesLeft = 0;
     }
 }
