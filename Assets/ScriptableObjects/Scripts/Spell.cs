@@ -7,4 +7,6 @@ public class Spell : ScriptableObject
 {
     public Sprite card;
 
+    public GameObject spellCard;
+
 }

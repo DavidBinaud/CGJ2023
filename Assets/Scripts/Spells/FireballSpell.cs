@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 
-public class FireballSpell : ISpell
+public class FireballSpell : MonoBehaviour, ISpell 
 {
-    public static GameObject Prefab;
+    public GameObject prefab;
     
-    public static void Cast()
+    public void Cast()
     {
-        var createdMissile = Instantiate(Prefab, PlayerController.Instance.transform);
+        GameObject createdMissile = Instantiate(prefab);
+        createdMissile.transform.position = PlayerController.Instance.transform.position;
         //prefab.transform and push it
         //createdMissile.transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        
-        createdMissile.transform.forward = 
+
+        //createdMissile.transform.forward = 
         Debug.Log("Fireball cast");
     }
 }
