@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6132220474666737023}
   - component: {fileID: 7587588261549195541}
   m_Layer: 0
-  m_Name: FireballSpell
+  m_Name: SandBallSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

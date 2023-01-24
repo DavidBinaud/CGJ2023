@@ -50,6 +50,6 @@ public class fireballMissile : MonoBehaviour
     private void setAnimatorDestroy(int animatorDestroyIndex)
     {
         animator.SetTrigger("Destroy");
-        animator.SetInteger("DestroyAnimIndex", animatorDestroyIndex);
+        animator.SetFloat("DestroyAnimIndex", animatorDestroyIndex);
     }
 }
