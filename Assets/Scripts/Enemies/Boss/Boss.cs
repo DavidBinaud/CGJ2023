@@ -5,13 +5,17 @@ using UnityEngine;
 public abstract class Boss : MonoBehaviour
 {
     public bool randomOrder;
+    public float timeBetweenAttacks;
     public BossAttack[] bossAtacks;
 
     protected int curentAttack;
+    protected float curentTimeBetweenAttacks;
+
+    private bool inCooldown = false;
 
     protected void Start()
     {
-        
+        curentTimeBetweenAttacks = timeBetweenAttacks;
         if (randomOrder)
         {
             curentAttack = Random.Range(0, bossAtacks.Length);
@@ -24,18 +28,31 @@ public abstract class Boss : MonoBehaviour
 
     protected void Update()
     {
-        if (bossAtacks[curentAttack].IsFinished())
+        if (!inCooldown && bossAtacks[curentAttack].IsFinished())
         {
             bossAtacks[curentAttack].enabled = false;
-            if (randomOrder)
+            inCooldown = true;
+            curentTimeBetweenAttacks = timeBetweenAttacks;
+        }
+
+        if (inCooldown) { 
+
+            curentTimeBetweenAttacks -= Time.deltaTime;
+
+            if (curentTimeBetweenAttacks <= 0.0f)
             {
-                curentAttack = Random.Range(0, bossAtacks.Length);
+                inCooldown = false;
+                
+                if (randomOrder)
+                {
+                    curentAttack = Random.Range(0, bossAtacks.Length);
+                }
+                else
+                {
+                    curentAttack = (curentAttack + 1) % bossAtacks.Length;
+                }
+                bossAtacks[curentAttack].enabled = true;
             }
-            else
-            {
-                curentAttack = (curentAttack + 1) % bossAtacks.Length;
-            }
-            bossAtacks[curentAttack].enabled = true;
         }
     }
 }

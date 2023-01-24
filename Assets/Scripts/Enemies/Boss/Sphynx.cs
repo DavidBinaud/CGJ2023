@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Sphynx : Boss
 {
-    public float vulnerableTime = 2.0f;
-
     new void Start()
     {
         base.Start();

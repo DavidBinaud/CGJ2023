@@ -12,6 +12,7 @@ public class ProjectileAttack : DurationBossAtack
     private float currentWaveTime;
     private int currentWave;
 
+
     private new void OnEnable()
     {
         base.OnEnable();
@@ -45,10 +46,5 @@ public class ProjectileAttack : DurationBossAtack
                 instancedProjectile.speed = positionInCircle * projectileSpeed;
             }
         }
-    }
-
-    private void OnDisable()
-    {
-
     }
 }
