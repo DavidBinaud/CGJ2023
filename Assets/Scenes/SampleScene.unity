@@ -1639,11 +1639,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eeb54ad4eeb125c4a99ce42296105421, type: 2}
   - {fileID: 11400000, guid: 4861b92a64c454b45b56a934c1feac7c, type: 2}
   - {fileID: 11400000, guid: 4861b92a64c454b45b56a934c1feac7c, type: 2}
-  speed: 20
-  dashForce: 800
+  speed: 10
+  dashForce: 6.4
   turnSpeed: 900
-  attackSpeed: 50
-  attackDelay: 0.01
+  attackSpeed: 25
+  attackDelay: 0.04
 --- !u!54 &797487045
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2135,6 +2135,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b76e9191-1348-42a8-97f0-2eea17621eed
     m_ActionName: IngamePlayer/Pause[/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 797487044}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Look
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9543327f-fa61-461d-b3ec-4586075f25f6
+    m_ActionName: IngamePlayer/Look[/XInputControllerWindows/rightStick,/XInputControllerWindows1/rightStick,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: IngamePlayer

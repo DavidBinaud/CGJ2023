@@ -71,7 +71,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float speed = 5f;
     [SerializeField] private float dashForce = 5f;
-    [SerializeField] private float turnSpeed = 360f;
 
     [SerializeField] private float attackSpeed = 180f;
     [SerializeField] private float attackDelay = 0.5f;
@@ -99,8 +98,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Look();
-
         ReduceCooldowns();
     }
 
@@ -130,8 +127,18 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Dash(InputAction.CallbackContext ctx){
-        if(ctx.started){
-            rb.AddForce(transform.forward * dashForce, ForceMode.Impulse);
+        if(ctx.performed){
+            RaycastHit hit;
+            if(Physics.Raycast(transform.position + Vector3.up, transform.forward * dashForce, out hit, 2* dashForce)){
+                transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+            }
+            else{
+                transform.position = transform.position + transform.forward * dashForce; ;
+            }
+
+            
+            
+            //rb.AddForce(transform.forward * dashForce, ForceMode.Impulse);
         }
         
     }
@@ -162,18 +169,28 @@ public class PlayerController : MonoBehaviour
 
         StartAttackTimer();
     }
-
-    void Look(){
-        if (input != Vector3.zero)
+    public void Look(InputAction.CallbackContext ctx)
+    {
+        Vector2 rawInput = ctx.ReadValue<Vector2>();
+        if (rawInput.x < joyStickDeadZone && rawInput.x > -joyStickDeadZone)
         {
-            Vector3 relative = (transform.position + input.ToIso()) - transform.position;
+            rawInput.x = 0f;
+        }
+        if (rawInput.y < joyStickDeadZone && rawInput.y > -joyStickDeadZone)
+        {
+            rawInput.y = 0f;
+        }
+        Vector3 lookInput = new Vector3(rawInput.x, 0f, rawInput.y);
+        if (lookInput != Vector3.zero)
+        {
+            Vector3 relative = (transform.position + lookInput.ToIso()) - transform.position;
             Quaternion rot = Quaternion.LookRotation(relative, Vector3.up);
-            transform.rotation = rot;//Quaternion.RotateTowards(transform.rotation, rot, turnSpeed * Time.deltaTime);
+            transform.rotation = rot;
         }
     }
 
     void Move(){
-        rb.MovePosition(transform.position + (transform.forward * input.magnitude) * speed * Time.deltaTime);
+        rb.MovePosition(transform.position + (input.ToIso()) * speed * Time.deltaTime);
     }
 
     public void SelectFirst(InputAction.CallbackContext ctx)

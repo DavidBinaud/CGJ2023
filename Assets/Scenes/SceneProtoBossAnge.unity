@@ -1744,7 +1744,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4861b92a64c454b45b56a934c1feac7c, type: 2}
   speed: 20
   dashForce: 800
-  turnSpeed: 900
   attackSpeed: 50
   attackDelay: 0.01
 --- !u!54 &797487045
@@ -2601,7 +2600,7 @@ MonoBehaviour:
   bossAtacks:
   - {fileID: 1131052189}
   - {fileID: 1131052190}
-  animationVulnerableShakeIntensity: 0.2
+  animationVulnerableShakeIntensity: 0.5
 --- !u!114 &1131052189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2619,7 +2618,7 @@ MonoBehaviour:
     type: 3}
   nbProjPerWave: 10
   projectileSpeed: 10
-  waveTime: 1
+  waveTime: 0.4
   projectileSpawnPos: {fileID: 2103650982}
 --- !u!114 &1131052190
 MonoBehaviour:
