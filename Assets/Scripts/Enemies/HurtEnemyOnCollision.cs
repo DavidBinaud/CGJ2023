@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HurtEnemyOnCollision : MonoBehaviour
 {
-    public float damage = 1.0f;
+    public int damage = 1;
 
     public bool deleteObject = false;
     public bool onlyOnce = false;

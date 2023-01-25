@@ -49,7 +49,7 @@ public class BasicMob : AEnemy{
         }
     }
 
-    void Start()
+    protected void Start()
     {
         weapon.SetDamages(datas.Damage);
         animator = GetComponent<Animator>();
@@ -57,7 +57,7 @@ public class BasicMob : AEnemy{
         nm_agent.speed = datas.moveSpeed;
         hp = datas.Health;
     }
-    void Update()
+    protected void Update()
     {
         if (CanMoove())
         {
@@ -72,7 +72,7 @@ public class BasicMob : AEnemy{
         }    
     }
 
-    public void TakeDamage(int amount){
+    public virtual void TakeDamage(int amount){
         hp -= amount;
         if(hp <= 0){
             Die();

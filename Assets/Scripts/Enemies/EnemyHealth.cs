@@ -3,14 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : BasicMob
 {
     public float health;
 
     public UnityEvent onDamageEvent;
     public UnityEvent onDeathEvent;
 
-    public virtual void TakeDamage(float damage)
+    protected new void Start()
+    {
+        
+    }
+
+    protected new void Update()
+    {
+
+    }
+
+    public override void TakeDamage(int damage)
     {
         if (health > 0.0f)
         {
