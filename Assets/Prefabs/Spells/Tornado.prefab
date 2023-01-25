@@ -4875,4 +4875,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDuration: 5
   attractionForce: 1
-  attractionDistance: 25
+  attractionDistance: 12

@@ -10,6 +10,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform armPivot;
     [SerializeField] private GameObject deathScreen;
+    [SerializeField] private Transform attackAnchor1;
+    [SerializeField] private Transform attackAnchor2;
+    [SerializeField] private GameObject[] attackAnimation;
+
+    [SerializeField] private PlayerSounds ps;
+
 
     public static PlayerController Instance;
     public event Action<int> onSelectCard;
@@ -29,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnKill(){
         Draw();
+        IncreaseShards(1);
     }
 
     private void Draw(){
@@ -42,6 +49,7 @@ public class PlayerController : MonoBehaviour
                 hand[i] = drawed;
                 deck.RemoveAt(index);
                 NotifyChangeHand();
+                ps.PlayDraw();
                 return;
             }
             Debug.Log("No space for " + drawed.name);
@@ -132,6 +140,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dash(InputAction.CallbackContext ctx){
         if(ctx.performed){
+            ps.PlayDash();
             RaycastHit hit;
             if(Physics.Raycast(transform.position + Vector3.up, transform.forward * playerData.dashForce, out hit, 2* playerData.dashForce)){
                 transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);
@@ -164,13 +173,31 @@ public class PlayerController : MonoBehaviour
     }
 
     IEnumerator Attack(){
+        ps.PlayAttack();
+        foreach(GameObject attack in attackAnimation){
+            attack.SetActive(true);
+        }
+        Collider[] hits = Physics.OverlapCapsule(attackAnchor1.position, attackAnchor2.position, 1f);
+
+        Debug.Log(hits.Length);
+        foreach(Collider hit in hits){
+            BasicMob enemy = null;
+            hit.TryGetComponent<BasicMob>(out enemy);
+            if(enemy != null){
+                enemy.TakeDamage(1);
+                Debug.Log("Damage");
+            }
+        }
         Quaternion finalRotation = armPivot.localRotation * Quaternion.Euler(0f, -120f, 0f);
 
         while(armPivot.localRotation != finalRotation){
             armPivot.localRotation = Quaternion.Slerp(armPivot.localRotation, finalRotation, playerData.attackSpeed * Time.deltaTime);
             yield return null;
         }
-
+        foreach (GameObject attack in attackAnimation)
+        {
+            attack.SetActive(false);
+        }
         StartAttackTimer();
     }
     public void Look(InputAction.CallbackContext ctx)
@@ -241,7 +268,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if(hand[selectedSpell] is not null){
                     RemoveSand();
-                    
+                    ps.PlayCast();
                     Debug.Log("Cast " + hand[selectedSpell].name);
                     hand[selectedSpell].spellCard.GetComponent<ISpell>().Cast();
                     deck.Add(hand[selectedSpell]);
@@ -262,6 +289,7 @@ public class PlayerController : MonoBehaviour
             if (hand[selectedSpell] is not null)
             {
                 AddSand();
+                ps.PlaySacrifice();
                 Debug.Log("Sacrifice " + hand[selectedSpell].name);
                 deck.Add(hand[selectedSpell]);
                 hand[selectedSpell] = null;
@@ -293,6 +321,7 @@ public class PlayerController : MonoBehaviour
     public void GetHit(){
         if(playerData.sandAmount > 0){
             playerData.sandAmount--;
+            ps.PlayHit();
             ChangeSandAmount();
         }
         else{
@@ -305,6 +334,7 @@ public class PlayerController : MonoBehaviour
         if (playerData.sandAmount >= dmg)
         {
             playerData.sandAmount-=dmg;
+            ps.PlayHit();
             ChangeSandAmount();
         }
         else
@@ -315,6 +345,7 @@ public class PlayerController : MonoBehaviour
 
     private void Die(){
         Debug.Log("Die");
+        ps.PlayDie();
         FindObjectOfType<DataPersistenceManager>().SaveGame();
         StartCoroutine(BackToMainMenu());
     }

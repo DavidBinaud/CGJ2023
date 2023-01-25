@@ -13,6 +13,7 @@ public class BasicMob : AEnemy{
     [SerializeField] private AWeapons weapon;
 
     private bool isMooving = false;
+    private int hp;
 
     public override void SetStartPosition(Vector3 _position)
     {
@@ -53,6 +54,8 @@ public class BasicMob : AEnemy{
         weapon.SetDamages(datas.Damage);
         animator = GetComponent<Animator>();
         nm_agent = GetComponent<NavMeshAgent>();
+        nm_agent.speed = datas.moveSpeed;
+        hp = datas.Health;
     }
     void Update()
     {
@@ -67,5 +70,21 @@ public class BasicMob : AEnemy{
                 Moove();
             }
         }    
+    }
+
+    public void TakeDamage(int amount){
+        hp -= amount;
+        if(hp <= 0){
+            Die();
+        }
+    }
+    public void Die(){
+        PlayerController.Instance.OnKill();
+        Destroy(transform.gameObject);
+    }
+
+    public void Unfreeze(){
+        GetComponent<Animator>().speed = 1f;
+        GetComponent<NavMeshAgent>().speed = datas.moveSpeed;
     }
 }
