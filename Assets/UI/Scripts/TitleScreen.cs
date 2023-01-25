@@ -27,5 +27,6 @@ public class TitleScreen : MonoBehaviour
     }
     private void LoadGame(AsyncOperation ao){
         SceneManager.LoadScene("Shop", LoadSceneMode.Additive);
+        SceneManager.LoadScene("PlayerData", LoadSceneMode.Additive);
     }
 }

@@ -37,12 +37,14 @@ public class DoorTrigger : MonoBehaviour, IInteraction
 
     public void Use()
     {
-        AsyncOperation ao = SceneManager.LoadSceneAsync(sceneToLoad);
-        ao.completed += UnloadShop;
+        AsyncOperation ao = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
+        ao.completed += UnloadPrevious;
     }
 
-    private void UnloadShop(AsyncOperation ao){
-        SceneManager.UnloadSceneAsync(sceneToUnload);
+    private void UnloadPrevious(AsyncOperation ao){
+        if(SceneManager.sceneCount > 1){
+            SceneManager.UnloadSceneAsync(sceneToUnload);
+        }
     }
 
     private void DisplayDoorMessage()
