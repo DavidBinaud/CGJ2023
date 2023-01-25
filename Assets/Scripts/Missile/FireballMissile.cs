@@ -22,6 +22,7 @@ public class fireballMissile : MonoBehaviour
             Debug.Log("Fireball hit");
             IDamageable damageableScript = other.gameObject.GetComponent<IDamageable>();
             //Application des dégâts
+            other.GetComponent<BasicMob>().TakeDamage(5);
             //damageableScript.TakeDamage(1);
             
             //Animation explosion ou mise feu autour 

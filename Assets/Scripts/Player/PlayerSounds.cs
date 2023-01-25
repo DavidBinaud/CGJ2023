@@ -23,6 +23,10 @@ public class PlayerSounds : MonoBehaviour
     public void PlayHit(){
         playerSounds.PlayOneShot(hit);
     }
+    public void PlayDie()
+    {
+        playerSounds.PlayOneShot(death);
+    }
     public void PlayDash()
     {
         playerSounds.PlayOneShot(dash);

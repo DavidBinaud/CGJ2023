@@ -174,9 +174,9 @@ GameObject:
   - component: {fileID: 738240963624613799}
   - component: {fileID: 4584321504631314492}
   - component: {fileID: 3037799901594516327}
-  - component: {fileID: -8617248998899143292}
+  - component: {fileID: 6940488152364067094}
   m_Layer: 0
-  m_Name: mob1_run 1
+  m_Name: FastRunner
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078ad588cc723704cabd640679f23fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  datas: {fileID: 11400000, guid: 421d65647f8f8794599a2a07886bfd22, type: 2}
+  datas: {fileID: 11400000, guid: 6fd60895555c84f41a6fd3d89d602188, type: 2}
   weapon: {fileID: 4475157259777878138}
 --- !u!195 &3037799901594516327
 NavMeshAgent:
@@ -255,7 +255,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!136 &-8617248998899143292
+--- !u!136 &6940488152364067094
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
