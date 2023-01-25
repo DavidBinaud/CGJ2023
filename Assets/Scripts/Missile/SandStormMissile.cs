@@ -31,13 +31,9 @@ public class SandStormMissile : MonoBehaviour
             foreach (var enemy in enemiesInRange)
             {
                 //Appliquer une force d'attraction
-                /*enemy.transform.position += (transform.position - enemy.transform.position).normalized *
+                enemy.transform.position += (transform.position - enemy.transform.position).normalized *
                                             (Time.deltaTime *
-                                             attractionForce);*/
-
-                enemy.transform.position = Vector3.Lerp(enemy.transform.position, transform.position,
-                    Time.deltaTime *
-                    attractionForce);
+                                             attractionForce);
 
                 //Appliquer des dégâts
             }

@@ -1680,7 +1680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885e2106d2c3152409bbee1e97e4a66e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLevels: 
   sandAmount: 3
   maxSandAmount: 3
   speed: 5
@@ -4256,7 +4255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b22d734f11fcf4991b86b600a8c73a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: save1
+  fileName: save1.save
   useEncryption: 0
 --- !u!4 &1922321605
 Transform:

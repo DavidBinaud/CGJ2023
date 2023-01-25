@@ -5,28 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreen : MonoBehaviour
 {
-    public static TitleScreen Instance;
-
-    void Awake(){
-        if(Instance == null){
-            Instance = this;
-        }
-    }
+    [SerializeField] private AudioSource audioSource;
 
     void Start(){
+        audioSource.Play();
+
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
-        SceneManager.LoadScene("PersistentData", LoadSceneMode.Additive);
-    }
-
-    public void PlaySelectedSave()
-    {
-        SceneManager.UnloadSceneAsync("SaveSelection");
-        AsyncOperation ao = SceneManager.UnloadSceneAsync(0);
-        ao.completed += LoadGame;
-
-    }
-    private void LoadGame(AsyncOperation ao){
-        SceneManager.LoadScene("Shop", LoadSceneMode.Additive);
-        SceneManager.LoadScene("PlayerData", LoadSceneMode.Additive);
+        
     }
 }
