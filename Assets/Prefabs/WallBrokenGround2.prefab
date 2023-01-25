@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 9164489499302933428, guid: 283d6a114af73dc47ab38014a2343ff0,
         type: 3}
       propertyPath: m_Name
-      value: EmptyTile (1)
+      value: WallBrokenGround2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74,7 +74,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5668010393626907230, guid: 283d6a114af73dc47ab38014a2343ff0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8884174306448979489}
+      addedObject: {fileID: 8212395049301569340}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 283d6a114af73dc47ab38014a2343ff0, type: 3}
 --- !u!4 &6037220094543544803 stripped
@@ -95,6 +95,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: brokeWall Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553184955701569311, guid: 9e161133efd506a4695e9e261e21f1e9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553184955701569311, guid: 9e161133efd506a4695e9e261e21f1e9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553184955701569311, guid: 9e161133efd506a4695e9e261e21f1e9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553184955701569311, guid: 9e161133efd506a4695e9e261e21f1e9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553184955701569311, guid: 9e161133efd506a4695e9e261e21f1e9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553184955701569311, guid: 9e161133efd506a4695e9e261e21f1e9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553184955701569311, guid: 9e161133efd506a4695e9e261e21f1e9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3016312856182685186, guid: 9e161133efd506a4695e9e261e21f1e9,
         type: 3}
@@ -156,9 +191,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e161133efd506a4695e9e261e21f1e9, type: 3}
---- !u!4 &8884174306448979489 stripped
+--- !u!4 &8212395049301569340 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3016312856182685186, guid: 9e161133efd506a4695e9e261e21f1e9,
+  m_CorrespondingSourceObject: {fileID: 2553184955701569311, guid: 9e161133efd506a4695e9e261e21f1e9,
     type: 3}
   m_PrefabInstance: {fileID: 5951214411149297699}
   m_PrefabAsset: {fileID: 0}

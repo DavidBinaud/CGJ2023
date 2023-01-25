@@ -191,6 +191,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roman Stone Coffin_wj3keafqx (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8133240475535103969, guid: 41e70cdeed922804bb1217fba5a2ce35,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5431705719226257211, guid: e5f58e48f504c9e49a95167b05420476,
+        type: 3}
+    - target: {fileID: 8368473439600507087, guid: 41e70cdeed922804bb1217fba5a2ce35,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5717600983780076860, guid: 6ab3f7476ab966540bf07f540f833966,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -316,6 +328,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roman Stone Coffin_wj3keafqx (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8133240475535103969, guid: 41e70cdeed922804bb1217fba5a2ce35,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5431705719226257211, guid: e5f58e48f504c9e49a95167b05420476,
+        type: 3}
+    - target: {fileID: 8368473439600507087, guid: 41e70cdeed922804bb1217fba5a2ce35,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5717600983780076860, guid: 6ab3f7476ab966540bf07f540f833966,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

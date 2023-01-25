@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: b49c1439dec7d4c4a84e7fbb0bbef4a8
+guid: cae3bb8a7a121014b88aa3104ffb489b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 2
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -67,7 +67,7 @@ ModelImporter:
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    strictVertexDataChecks: 0
+    strictVertexDataChecks: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
