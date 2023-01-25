@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SandStormMissile : MonoBehaviour
 {
+    [SerializeField] 
     private float timeDuration = 0;
     
     [SerializeField] private float attractionForce = 2f;

@@ -13,6 +13,12 @@ public abstract class Boss : MonoBehaviour
 
     protected bool inCooldown = false;
 
+    public virtual void Die()
+    {
+        bossAtacks[curentAttack].enabled = false;
+        this.enabled = false;
+    }
+
     protected void Start()
     {
         curentTimeBetweenAttacks = timeBetweenAttacks;

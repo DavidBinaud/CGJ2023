@@ -31,8 +31,9 @@ public class BasicMob : AEnemy{
     public override void Attack()
     {
         isMooving = false;
+        Vector3 dir = PlayerController.Instance.transform.position - transform.position;
         //Face the player
-        transform.rotation = Quaternion.LookRotation(Vector3.Normalize(PlayerController.Instance.transform.position - transform.position));
+        transform.forward = new Vector3(dir.x, 0.0f, dir.z);
         //Attack
         animator.Play("attack");
     }

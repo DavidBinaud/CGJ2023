@@ -13,15 +13,14 @@ public class PlayerController : MonoBehaviour
     public event Action<int> onSelectCard;
     public event Action onChangeHand;
     public event Action<int> onSandAmountChange;
+    public event Action<int> onShardAmountChange;
 
     public Spell[] hand;
     public List<Spell> deck;
 
-    /* TODO : Sortir toutes les data améliorables dans une autre classe 
-    et faire de la composition
-    */
-    int sandAmount = 3;
-    int maxSandAmount = 3;
+    public IInteraction currentInteraction;
+
+    public PlayerData playerData;
 
 
     private int selectedSpell = 5;
@@ -65,15 +64,18 @@ public class PlayerController : MonoBehaviour
     {
         if (onSandAmountChange != null)
         {
-            onSandAmountChange(sandAmount);
+            onSandAmountChange(playerData.sandAmount);
+        }
+    }
+    public void ChangeShardAmount()
+    {
+        if (onShardAmountChange != null)
+        {
+            onShardAmountChange(playerData.shards);
         }
     }
 
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float dashForce = 5f;
-
-    [SerializeField] private float attackSpeed = 180f;
-    [SerializeField] private float attackDelay = 0.5f;
+    
 
     private bool attackTimerOn = false;
     private float currentAttackCD = 0f;
@@ -129,11 +131,11 @@ public class PlayerController : MonoBehaviour
     public void Dash(InputAction.CallbackContext ctx){
         if(ctx.performed){
             RaycastHit hit;
-            if(Physics.Raycast(transform.position + Vector3.up, transform.forward * dashForce, out hit, 2* dashForce)){
+            if(Physics.Raycast(transform.position + Vector3.up, transform.forward * playerData.dashForce, out hit, 2* playerData.dashForce)){
                 transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);
             }
             else{
-                transform.position = transform.position + transform.forward * dashForce; ;
+                transform.position = transform.position + transform.forward * playerData.dashForce; ;
             }
 
             
@@ -147,7 +149,7 @@ public class PlayerController : MonoBehaviour
         if (ctx.started)
         {
             if(currentAttackCD <= 0f){
-                currentAttackCD = attackDelay;
+                currentAttackCD = playerData.attackDelay;
                 StartCoroutine(Attack());
             }
             
@@ -163,7 +165,7 @@ public class PlayerController : MonoBehaviour
         Quaternion finalRotation = armPivot.localRotation * Quaternion.Euler(0f, -120f, 0f);
 
         while(armPivot.localRotation != finalRotation){
-            armPivot.localRotation = Quaternion.Slerp(armPivot.localRotation, finalRotation, attackSpeed * Time.deltaTime);
+            armPivot.localRotation = Quaternion.Slerp(armPivot.localRotation, finalRotation, playerData.attackSpeed * Time.deltaTime);
             yield return null;
         }
 
@@ -190,7 +192,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Move(){
-        rb.MovePosition(transform.position + (input.ToIso()) * speed * Time.deltaTime);
+        rb.MovePosition(transform.position + (input.ToIso()) * playerData.speed * Time.deltaTime);
     }
 
     public void SelectFirst(InputAction.CallbackContext ctx)
@@ -230,7 +232,7 @@ public class PlayerController : MonoBehaviour
         if (ctx.performed)
         {
             
-            if(sandAmount > 0){
+            if(playerData.sandAmount > 0){
                 if(selectedSpell >= hand.Length){
                     Debug.Log("No spell selected");
                     return;
@@ -272,43 +274,83 @@ public class PlayerController : MonoBehaviour
     }
 
     public void AddSand(){
-        if(sandAmount >= maxSandAmount){
+        if(playerData.sandAmount >= playerData.maxSandAmount){
             Debug.Log("already Max sand, drop to the floor.");
         }
         else{
-            sandAmount++;
+            playerData.sandAmount++;
             ChangeSandAmount();
         }
         
     }
     public void RemoveSand(){
-        sandAmount--;
+        playerData.sandAmount--;
         ChangeSandAmount();
     }
 
     public void GetHit(){
-        if(sandAmount > 0){
-            sandAmount--;
+        if(playerData.sandAmount > 0){
+            playerData.sandAmount--;
             ChangeSandAmount();
         }
         else{
-            Debug.Log("Die");
+            Die();
         }
     }
 
-
-    public void GetHit(int _damage)
+    public void GetHit(int dmg)
     {
-        if (sandAmount >= _damage)
+        if (playerData.sandAmount >= dmg)
         {
-            sandAmount -= _damage;
+            playerData.sandAmount-=dmg;
             ChangeSandAmount();
         }
         else
         {
-            Debug.Log("Die");
+            Die();
         }
     }
 
+    private void Die(){
+        Debug.Log("Die");
+        FindObjectOfType<DataPersistenceManager>().SaveGame();
+    }
 
+    public void UpgradeSand(float value, int cost){
+        if(playerData.shards >= cost){
+            playerData.shards -= cost;
+            ChangeShardAmount();
+            playerData.maxSandAmount = (int)value;
+            playerData.sandAmount = playerData.maxSandAmount;
+            ChangeSandAmount();
+            playerData.upgradeLevels[(int)Helpers.ShopItems.Sand]++;
+        }
+    }
+    public void UpgradeSpeed(float value, int cost)
+    {
+        if (playerData.shards >= cost)
+        {
+            playerData.shards -= cost;
+            ChangeShardAmount();
+            playerData.speed = (int)value;
+            playerData.upgradeLevels[(int)Helpers.ShopItems.Speed]++;
+        }
+    }
+
+    public void Interact(InputAction.CallbackContext ctx){
+        if(ctx.performed){
+            if (currentInteraction != null)
+            {
+                currentInteraction.Use();
+                return;
+            }
+        }
+    }
+
+    public void IncreaseShards(int amount){
+        playerData.shards += amount;
+        ChangeShardAmount();
+    }
+
+    
 }
