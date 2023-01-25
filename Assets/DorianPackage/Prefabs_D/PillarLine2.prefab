@@ -256,6 +256,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roman Column_wj3kdjtqx
       objectReference: {fileID: 0}
+    - target: {fileID: 5424844774481255195, guid: 9fb33f5746ee9ee408c01d10e043d880,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1716881898322893602, guid: 100b5ae46fb4673438473f1379a76729,
+        type: 3}
+    - target: {fileID: 6306354497064873032, guid: 9fb33f5746ee9ee408c01d10e043d880,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3496343762652876654, guid: c26e8c894bbbc7f4788d5ccb3ddbb11d,
+        type: 3}
     - target: {fileID: 8513141360813933470, guid: 9fb33f5746ee9ee408c01d10e043d880,
         type: 3}
       propertyPath: m_RootOrder
@@ -345,11 +357,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5668010393626907230}
     m_Modifications:
+    - target: {fileID: 4089125913960032880, guid: 4395d7cbe7bac1045af393c1c93e6882,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5191786089063415904, guid: 09a136fcb6d55204c9e6fbb40fad71cf,
+        type: 3}
     - target: {fileID: 6840847659180040447, guid: 4395d7cbe7bac1045af393c1c93e6882,
         type: 3}
       propertyPath: m_Name
       value: Roman Column_thrufgafa
       objectReference: {fileID: 0}
+    - target: {fileID: 7598636139344221447, guid: 4395d7cbe7bac1045af393c1c93e6882,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 595513000324917881, guid: e9e5af9ca523c6a4b81049787b8ebbd0,
+        type: 3}
     - target: {fileID: 8910016414718340182, guid: 4395d7cbe7bac1045af393c1c93e6882,
         type: 3}
       propertyPath: m_RootOrder
@@ -440,6 +464,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5668010393626907230}
     m_Modifications:
+    - target: {fileID: 1317220541722663151, guid: 06dc79590c8cc374bb153d7878c7168c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 440307067144919639, guid: 272ac9865d5e87a45acb5556aafae2f2,
+        type: 3}
     - target: {fileID: 4203873781489914124, guid: 06dc79590c8cc374bb153d7878c7168c,
         type: 3}
       propertyPath: m_Name
