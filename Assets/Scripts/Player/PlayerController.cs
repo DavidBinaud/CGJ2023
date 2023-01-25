@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform armPivot;
+    [SerializeField] private GameObject deathScreen;
 
     public static PlayerController Instance;
     public event Action<int> onSelectCard;
@@ -314,6 +316,19 @@ public class PlayerController : MonoBehaviour
     private void Die(){
         Debug.Log("Die");
         FindObjectOfType<DataPersistenceManager>().SaveGame();
+        StartCoroutine(BackToMainMenu());
+    }
+    IEnumerator BackToMainMenu(){
+        Instantiate(deathScreen);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+
+    }
+    
+    public void SetToLevelStart(){
+        transform.parent.position = GameObject.Find("LevelStart").transform.position;
+        transform.localPosition = new Vector3(0f, 1f, 0f);
+        transform.parent.Find("CameraPivot").transform.position = Vector3.zero;
     }
 
     public void UpgradeSand(float value, int cost){

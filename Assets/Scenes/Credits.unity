@@ -511,8 +511,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Jeu fait par :\\nCamille BERNADAS\\nDavid BINAUD\\nAnge CLEMENT\\nDorian
-    GERARDIN\\nErwan REINDERS\\nTristan TRIBES\\n\\nMerci \xE0 :\\nMasami KOMURO
-    (Music)\\nMelissa MANELPHE\\nRoxanne\\n \\n Et merci \xE0 vous ! <3"
+    GERARDIN\\nErwan REINDERS\\nTristan TRIBES\\n\\nMerci \xE0 :Antoine CHOLLET (Organisateur)\\nMasami
+    KOMURO (Music)\\nAgathe EDMOND-MARIETTE (Music)\\nRoxane TISSOT (Music)\\nMelissa
+    MANELPHE (Music)\\n\\nTous les coachs\\nLe Staff de l'\xE9v\xE8nement\\n\\n\\n
+    Et merci \xE0 vous ! <3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -661,8 +663,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: X
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 29277ecd8efa3c84facca689bf8c80c2, type: 2}
+  m_sharedMaterial: {fileID: -1311374010720940348, guid: 29277ecd8efa3c84facca689bf8c80c2,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
