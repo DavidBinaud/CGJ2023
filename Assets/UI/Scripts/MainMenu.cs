@@ -14,10 +14,12 @@ public class MainMenu : MonoBehaviour
 
     public void Credits(){
         SceneManager.LoadScene("Credits", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("MainMenu");
     }
 
     public void Play()
     {
         SceneManager.LoadScene("SaveSelection", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("MainMenu");
     }
 }
